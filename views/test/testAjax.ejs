@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%=title%></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/javascripts/pagejs/<%= pageCd %>.js"></script>
+</head>
+<body>
+    <h1><%=title%></h1>
+    <div id="testDiv">
+        <span><%=param1%> : </span>
+        <input type="text" id="msg" />
+        <input type="button" id="ajax_test" value="ajax_test" />
+        <div id="result"></div>
+    </div>
+    <!-- 이곳에 결과 값이 붙는다. -->
+    <div id="result"></div>
+    <br/>
+    <br/>
+    <br/>
+    <div id="footerDiv">
+        <span style="font-size: 17px"><a href="/">목록</a></span>
+    </div>
+</body>
+<script>
+    //<![CDATA[
+    $(document).ready(function () {
+       testAjax.init();
+    });
+    //]]>
+</script>
+</html>
