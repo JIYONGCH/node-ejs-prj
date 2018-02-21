@@ -1,14 +1,15 @@
 var express = require('express');
 var router = express.Router();
+// 웹 크롤링에 필요한 모듈
 var request = require('request');
 var cheerio = require('cheerio');
 
-var url = 'https://brunch.co.kr/';
+var url = 'https://brunch.co.kr/'; // 타겟 페이지
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
     res.render('test/stocks', { title: 'stocks' });
-
+    // 웹 크롤링
     request(url, function (error, reponse, body) {
         if(error) throw error;
         // console.log(body);
@@ -31,14 +32,15 @@ router.get('/', function(req, res, next) {
             console.log('i------======================>>>'+i);
             console.log('postTitle------>>>'+postTitle);
             console.log('postUrl------>>>'+postCont);
-            crawlingArray.push(crawlingInfo);
+            crawlingArray.push(crawlingInfo); // json 형태로 담기
             console.log('array=========================>>>>>>>'+JSON.stringify(crawlingArray));
             console.log('array_length=========================>>>>>>>'+JSON.stringify(crawlingArray).length);
             i++;
         });
         // return crawlingArray;
         // res.send({});
-    });});
+    });
+});
 
 
 

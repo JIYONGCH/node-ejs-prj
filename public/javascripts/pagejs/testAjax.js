@@ -1,4 +1,4 @@
-var tesAjax = {
+var testAjax = {
     init : function () {
         var _th = this;
         _th.bind();
