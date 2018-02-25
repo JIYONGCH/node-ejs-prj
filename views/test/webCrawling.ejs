@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title><%=title%></title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/javascripts/pagejs/<%= title %>.js"></script>
+</head>
+<body>
+<h1>web crawling page</h1>
+<!--<button class="btn_evt">CLICK!</button>-->
+<p>웹 크롤링 타켓 : <%= url %></p>
+<p><%= url %> 에서 스크래핑 해온 데이터 결과 리스트</p>
+<div id="crawling_result_div">
+    <table>
+        <tr>
+            <th>idx</th>
+            <th>title</th>
+            <th>cont</th>
+        </tr>
+        <% for (var i = 0; i < crawlingArray.length; i++) { %>
+        <tr>
+            <td><%= i+1 %></td>
+            <td><%= crawlingArray[i].title %></td>
+            <td><%= crawlingArray[i].cont %></td>
+        </tr>
+        <% } %>
+    </table>
+</div>
+<br/>
+<br/>
+<br/>
+<div id="footerDiv">
+    <span style="font-size: 17px"><a href="/">목록</a></span>
+</div>
+</body>
+<script>
+    //<![CDATA[
+    $(document).ready(function () {
+        stocks.init();
+    });
+    //]]>
+</script>
+</html>

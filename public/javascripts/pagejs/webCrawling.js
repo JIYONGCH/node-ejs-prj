@@ -4,9 +4,9 @@ var stocks = {
         _th.bind();
     },
     bind : function () {
-        $('.btn_evt').unbind().bind('click',function () {
-            alert('SUCCESS!');
-        });
+        // $('.btn_evt').unbind().bind('click',function () {
+        //     alert('SUCCESS!');
+        // });
     },
     unbind : function () {
 

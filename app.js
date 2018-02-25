@@ -10,7 +10,8 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var join = require('./routes/joinForm');
 var ajax = require('./routes/test/testAjax');
-var stocks = require('./routes/test/stocks');
+var webCrawling = require('./routes/test/webCrawling');
+var values = require('./routes/test/keepValues');
 
 var app = express();
 
@@ -30,7 +31,8 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/join', join);
 app.use('/test/ajax', ajax);
-app.use('/test/stocks', stocks);
+app.use('/test/webCrawling', webCrawling);
+app.use('/test/values', values);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

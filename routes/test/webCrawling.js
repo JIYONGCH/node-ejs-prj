@@ -8,7 +8,8 @@ var url = 'https://brunch.co.kr/'; // 타겟 페이지
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('test/stocks', { title: 'stocks' });
+
+    // var crawlingArray = new Array();
     // 웹 크롤링
     request(url, function (error, reponse, body) {
         if(error) throw error;
@@ -29,16 +30,23 @@ router.get('/', function(req, res, next) {
             crawlingInfo.inx=i;
             crawlingInfo.title=postTitle;
             crawlingInfo.cont=postCont;
-            console.log('i------======================>>>'+i);
-            console.log('postTitle------>>>'+postTitle);
-            console.log('postUrl------>>>'+postCont);
+            // console.log('i------======================>>>'+i);
+            // console.log('postTitle------>>>'+postTitle);
+            // console.log('postUrl------>>>'+postCont);
             crawlingArray.push(crawlingInfo); // json 형태로 담기
-            console.log('array=========================>>>>>>>'+JSON.stringify(crawlingArray));
-            console.log('array_length=========================>>>>>>>'+JSON.stringify(crawlingArray).length);
+            // console.log('[   1   ]array=========================>>>>>>>'+JSON.stringify(crawlingArray));
+            // console.log('[   1   ]array_length=========================>>>>>>>'+JSON.stringify(crawlingArray).length);
             i++;
         });
-        // return crawlingArray;
-        // res.send({});
+        // console.log('[   2   ]array=========================>>>>>>>'+JSON.stringify(crawlingArray));
+        // console.log('[   2   ]array_length=========================>>>>>>>'+JSON.stringify(crawlingArray).length);
+        res.render('test/webCrawling',
+            {
+                title: 'webCrawling',
+                url: url,
+                crawlingArray: crawlingArray // json 으로 담은 데이터를 view 로 전달
+            }
+        );
     });
 });
 
