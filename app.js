@@ -23,7 +23,7 @@ app.set('view engine', 'ejs');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: false })); // (1) extended: false > true
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 // url 매핑 후 추가해야되는 부분 ('url path', 매핑한 객체)
